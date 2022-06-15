@@ -1,7 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-//토큰 만료시간
-export const TOKEN_TIMEOUT = 5 * 60 * 1000;
+import { TOKEN_TIME_OUT } from "../../API/Common";
 
 //토큰 slice
 export const TokenSlice = createSlice(
@@ -16,7 +15,7 @@ export const TokenSlice = createSlice(
             SET_TOKEN:(state,action) => {
                 state.authenticated = true; 
                 state.accessToken = action.payload;
-                state.expireTime = new Date().getTime() + TOKEN_TIMEOUT;
+                state.expireTime = new Date().getTime() + TOKEN_TIME_OUT;
             },
             DELETE_TOKEN:(state) => {
                 state.authenticated = false;

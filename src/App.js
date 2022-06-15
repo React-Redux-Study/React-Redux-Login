@@ -1,13 +1,20 @@
-import "styled-components/macro"
-import tw from "twin.macro"
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+import Header from "./Routes/Layout/Header";
+import SignIn from "./Routes/User/SignIn";
+import SignOut from "./Routes/User/SignOut";
+import SignUp from "./Routes/User/SignUp";
 
 function App(){
     return (
-        <>
-            <div css={tw`bg-gray-800`}>
-                
-            </div>
-        </>
+        <Router>
+            <Header />
+            <Routes>
+                <Route path="/user/signin" element={<SignIn />} />
+                <Route path="/user/signup" element={<SignUp />} />
+                <Route path="/user/signout" element={<SignOut />} />
+            </Routes>
+        </Router>
     )
 }
 

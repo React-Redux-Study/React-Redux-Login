@@ -12,6 +12,7 @@ const PublicRoute = () => {
     const location = useLocation();
     const { isAuth } = Token(location.key);
 
+    
     if(isAuth === "Success"){
         return (
             <Navigate to="/" state={{from:location}} />

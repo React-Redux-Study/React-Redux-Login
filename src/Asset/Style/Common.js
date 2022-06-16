@@ -1,10 +1,12 @@
 import { createGlobalStyle } from "styled-components/macro"
+import "styled-components/macro"
 import tw, { styled } from 'twin.macro';
 
-import "styled-components/macro"
 
 import "../Font/SUIT.css"
 import "../Font/SUIT-Variable.css"
+
+import { ReactComponent as LogoSVG } from "../Image/logo.svg";
 
 const Common = createGlobalStyle`
 
@@ -85,6 +87,7 @@ html, body {
   }
 `;
 
+export const Logo = LogoSVG
 
 export const CommonDivFlex = styled.div`
     ${tw`flex`}

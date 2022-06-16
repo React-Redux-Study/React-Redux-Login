@@ -11,6 +11,7 @@ import LoadingModal from "../../Components/Modal/LoadingModal"
 const PrivateRoute = () => {
     const location = useLocation();
     const { isAuth } = Token(location.key);
+    
 
     if(isAuth === "Failed"){
         return (

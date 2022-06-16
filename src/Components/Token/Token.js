@@ -8,15 +8,16 @@ import { refresh, TOKEN_REDIRECT_TIME, TOKEN_TIME_OUT } from "../../API/Common";
 
 import { DELETE_TOKEN, SET_TOKEN } from "../../Store/Token/Token";
 
+
 const Token = () => {
     const refreshToken = getRefreshToken();
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
-
-    const token = async() => {
+    
+    const token = async () => {
         const data = await refresh(refreshToken);
-
+        
         if(data.status){
             const token = data.json.access_token;
             dispatch(SET_TOKEN(token));

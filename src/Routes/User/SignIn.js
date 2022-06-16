@@ -27,98 +27,106 @@ import {
 } from "../../Asset/Style/User/User";
 
 import {
+    Logo,
     CommonDiv,
 } from "../../Asset/Style/Common";
 
+//import ImgTest from "../../Asset/Image/logo.gif"
 
 const SignIn = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
-    const {register, setValue, formState: {errors}, handleSubmit} = useForm();
+    const { register, setValue, formState: { errors }, handleSubmit } = useForm();
 
-    const onValid = async( {userid, password} ) => {
+    const onValid = async ({ userid, password }) => {
         dispatch(ENABLE_LOADING());
-        const data = await signin({userid, password});
+        const data = await signin({ userid, password });
 
-        if(data.status){
+        if (data.status) {
             setRefreshToken(data.json.refresh_token);
             dispatch(SET_TOKEN(data.json.access_token));
             return navigate("/");
-        }else{
+        } else {
             dispatch(SET_ERROR_MESSAGE(data.json))
         }
         dispatch(DISABLE_LOADING());
         setValue("password", "");
     }
-
     return (
-        <UserContainer>
-            <CommonDiv>
-                <UserTitle>로그인</UserTitle>
-            </CommonDiv>
-
-            <UserBody>
-                <UserContents>
-                    <UserForm onSubmit={handleSubmit(onValid)}>
-                        <CommonDiv>
-                            <UserLabel htmlFor="id">
-                                아이디
-                            </UserLabel>
-                            <UserMarginTop>
-                                <UserInput 
-                                    { ...register("userid", { required: "아이디를 입력해 주세요." })}
-                                    type="text"
-                                />
-                                <ErrorMessage
-                                    name="userid"
-                                    errors={errors}
-                                    render={
-                                        ({message}) =>
-                                        <UserError className="text-rose-500">
-                                            {message}
-                                        </UserError>
-                                    }
-                                />
-                            </UserMarginTop>
+            <UserContainer>
+                <CommonDiv>
+                    <UserTitle>Sign In</UserTitle>
+                </CommonDiv>
+                
+                <UserBody>
+                
+                    <UserContents>
+                        <CommonDiv className="flex justify-center items-center">
+                            <Logo className="w-48 h-48 fill-black-900"/>
                         </CommonDiv>
+                        <UserForm onSubmit={handleSubmit(onValid)}>
+                            <CommonDiv>
+                                <UserLabel htmlFor="id">
+                                    Username
+                                </UserLabel>
+                                <UserMarginTop>
+                                    <UserInput
+                                        {...register("userid", { required: "아이디를 입력해 주세요." })}
+                                        type="text"
+                                    // value="test"
+                                    />
+                                    <ErrorMessage
+                                        name="userid"
+                                        errors={errors}
+                                        render={
+                                            ({ message }) =>
+                                                <UserError className="text-rose-500">
+                                                    {message}
+                                                </UserError>
+                                        }
+                                    />
+                                </UserMarginTop>
+                            </CommonDiv>
 
-                        <CommonDiv>
-                            <UserLabel htmlFor="password">
-                                비밀번호
-                            </UserLabel>
-                            <UserMarginTop>
-                                <UserInput
-                                     {...register('password', { required: "비밀번호를 입력해 주세요" })}
-                                     type="password"
-                                />
-                                <ErrorMessage
-                                    name="password"
-                                    errors={errors}
-                                    render={ ({message}) =>
-                                        <UserError className="text-rose-500">
-                                            {message}
-                                        </UserError>
-                                    }
-                                />
-                            </UserMarginTop>
-                        </CommonDiv>
-                        
-                        <CommonDiv>
-                            <UserButton type="submit">
-                                로그인
-                            </UserButton>
-                        </CommonDiv>
-                    </UserForm>
-                </UserContents>
-                <UserButtonDiv>
-                    <UserA href="./signup">
-                        계정 만들기
-                    </UserA>
-                </UserButtonDiv>
-            </UserBody>
+                            <CommonDiv>
+                                <UserLabel htmlFor="password">
+                                    Password
+                                </UserLabel>
+                                <UserMarginTop>
+                                    <UserInput
+                                        {...register('password', { required: "비밀번호를 입력해 주세요" })}
+                                        type="password"
+                                    //  value="asdfqwer1234"
+                                    />
+                                    <ErrorMessage
+                                        name="password"
+                                        errors={errors}
+                                        render={({ message }) =>
+                                            <UserError className="text-rose-500">
+                                                {message}
+                                            </UserError>
+                                        }
+                                    />
+                                </UserMarginTop>
+                            </CommonDiv>
 
-        </UserContainer>
+                            <CommonDiv>
+                                <UserButton type="submit">
+                                    Sign In
+                                </UserButton>
+                            </CommonDiv>
+                        </UserForm>
+                    </UserContents>
+                    <UserButtonDiv>
+                        <UserA href="./signup">
+                            Sign Up
+                        </UserA>
+                    </UserButtonDiv>
+                </UserBody>
+
+            </UserContainer>
+
     );
 }
 

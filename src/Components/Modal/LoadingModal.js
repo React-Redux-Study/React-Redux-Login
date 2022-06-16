@@ -9,7 +9,7 @@ import {
 
 const LoadingModal = () => {
     const {isLoading} = useSelector(state => state.loading)
-
+    
     return (
         <>
             {isLoading && (

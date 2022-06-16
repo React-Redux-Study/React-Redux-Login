@@ -1,13 +1,13 @@
 import { getRefreshToken } from "./Cookie/Cookie";
 
-export const BASE_URL = "http://localhost:8080";
+export const BASE_URL = "http://192.168.0.14:8000";
 
 //응답 대기 만료 시간
 export const TIME_OUT = 30 * 60 * 1000;
 //토큰 redirect
 export const TOKEN_REDIRECT_TIME = 60 * 1000;
 //토큰 만료시간
-export const TOKEN_TIME_OUT = 5 * 60 * 1000;
+export const TOKEN_TIME_OUT = 60 * 60 * 1000;
 
 const error = {
     status: false,

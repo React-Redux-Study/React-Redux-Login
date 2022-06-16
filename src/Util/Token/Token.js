@@ -9,6 +9,7 @@ import { DELETE_TOKEN, SET_TOKEN } from "../../Store/Token/Token";
 import { isValueUndefined } from "../Valid/Valid"
 
 export const Token = (key) => {
+    
     const [isAuth, setIsAuth] = useState("Loaded");
     const { authenticated, expireTime } = useSelector(state => state.token);
     const refreshToken = getRefreshToken();
@@ -28,6 +29,7 @@ export const Token = (key) => {
                     if(data.status){
                         const token = data.json.access_token;
                         dispatch(SET_TOKEN(token));
+                        setIsAuth("Success");
                     }else{
                         dispatch(DELETE_TOKEN());
                         removeRefreshToken();

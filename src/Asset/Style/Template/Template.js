@@ -1,14 +1,23 @@
 import styled from 'styled-components'
 import tw from "twin.macro";
 
+export const TemplateProfile = styled.div`
+    ${tw`w-64 h-64 bg-gradient-to-tr from-gray-700 to-gray-500 rounded-full font-bold text-9xl text-white flex justify-center items-center`}
+`;
+
 export const TemplateContainer = styled.div`
-    ${tw`block w-full mr-auto ml-auto px-10 max-w-screen-xl`}
+    ${tw`w-full h-screen p-10 flex flex-col justify-center items-center space-y-3`}
 `;
 
-export const TemplateForm = styled.div`
-    ${tw`flex flex-initial flex-row justify-between items-center my-4 w-full h-16`}
+export const TemplateUserId = styled.p`
+    ${tw`font-bold text-2xl`}
 `;
 
-export const TemplateButton = styled.div`
-    ${tw`inline-flex flex-initial items-center px-4 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-gray-500 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 cursor-pointer `}
+export const TemplateLastLogin = styled.p`
+    ${tw`font-thin text-sm`}
 `;
+
+export const TempalteButton = styled.button`
+    ${tw`font-bold rounded-md p-2 bg-gray-400 text-gray-100 text-sm cursor-pointer hover:bg-gray-600`}
+`;
+

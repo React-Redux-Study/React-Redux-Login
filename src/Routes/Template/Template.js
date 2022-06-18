@@ -13,7 +13,8 @@ import {
     TemplateContainer,
     TemplateUserId,
     TemplateLastLogin,
-    TempalteButton
+    TempalteButton,
+    TempalteWarrningButton
 } from "../../Asset/Style/Template/Template";
 
 import{
@@ -73,7 +74,7 @@ function Template(){
                 <CommonDivFlex className="space-x-4">
                     <TempalteButton onClick={onClickSignOut}>Sign Out</TempalteButton>
                     <TempalteButton onClick={onClickRenewPassword}>Renew Password</TempalteButton>
-                    <TempalteButton onClick={onClickWithdrawal}>Withdrawal</TempalteButton>
+                    <TempalteWarrningButton onClick={onClickWithdrawal}>Withdrawal</TempalteWarrningButton>
                 </CommonDivFlex>
             </TemplateContainer>
         </>

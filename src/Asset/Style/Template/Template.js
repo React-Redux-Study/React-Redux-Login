@@ -21,3 +21,6 @@ export const TempalteButton = styled.button`
     ${tw`font-bold rounded-md p-2 bg-gray-400 text-gray-100 text-sm cursor-pointer hover:bg-gray-600`}
 `;
 
+export const TempalteWarrningButton = styled.button`
+    ${tw`font-bold rounded-md p-2 bg-red-400 text-gray-100 text-sm cursor-pointer hover:bg-red-600`}
+`;

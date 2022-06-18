@@ -62,6 +62,10 @@ const Renew = () => {
                 //window.location.reload();
             }
         }
+
+        setValue("oldPassword", "");
+        setValue("newPassword1", "");
+        setValue("newPassword2", "");
     }
 
     return (
